@@ -1,0 +1,158 @@
+@import "../../colors.scss";
+.filter {
+  width: 280px;
+}
+.category {
+  display: flex;
+  flex-direction: column;
+  &__item {
+    &__info {
+      cursor: pointer;
+      padding: 7px 16px 7px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__count {
+    }
+  }
+}
+.subcategory {
+  .category__item__info {
+    padding-left: 24px;
+  }
+}
+
+.price {
+  margin-top: 28px;
+  &__title {
+    text-align: center;
+  }
+  &__block {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__text {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    font-size: 12px;
+    color: $color-font-second;
+  }
+  &__divide {
+    width: 10px;
+    height: 1px;
+    background: $color-border;
+    flex-shrink: 0;
+  }
+  &__label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 119px;
+    height: 36px;
+    border: 1px solid $color-border;
+    border-radius: 8px;
+    padding-left: 8px;
+
+    input {
+      border: none;
+      width: 100%;
+      margin-left: 16px;
+    }
+  }
+}
+
+.brand,
+.size {
+  margin-top: 28px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__clear {
+    font-size: 12px;
+    color: $color-font-second;
+    text-decoration: underline;
+  }
+  &__find {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    padding: 12px 4px 12px 16px;
+    border: 1px solid $color-font-second;
+    border-radius: 8px;
+    flex-grow: 1;
+    cursor: text;
+    height: 36px;
+    box-sizing: border-box;
+    input {
+      border: none;
+      margin-left: 8px;
+      font-size: 14px;
+    }
+  }
+  &__list {
+    input[type="checkbox"] {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 180px;
+    overflow-y: scroll;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    &__label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+    }
+    &__checkbox {
+      width: 20px;
+      height: 20px;
+      border: 1px solid $color-border;
+      border-radius: 3px;
+    }
+    &__name {
+      margin-left: 12px;
+    }
+    &__count {
+      margin-left: auto;
+      margin-right: 13px;
+    }
+  }
+}
+
+.category,
+.brand,
+.size {
+  &__item {
+    &__count {
+      font-size: 12px;
+      color: $color-font-second;
+    }
+  }
+}
+
+.size {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  &__title {
+    text-align: center;
+  }
+}
