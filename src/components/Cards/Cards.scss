@@ -1,0 +1,19 @@
+.cards {
+  margin-left: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, 333px);
+}
+.card {
+  &__img-block {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #f8f8fa;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
