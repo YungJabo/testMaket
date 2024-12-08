@@ -2,6 +2,8 @@ import "./Filter.scss";
 import { category, brands } from "../../const.js";
 import { useRef, useState } from "react";
 import { ScrollBar } from "../ScrollBar/ScrollBar.jsx";
+import findImg from "/find.svg";
+import checkedImg from "/checked.svg";
 
 export const Filter = () => {
   const brandRef = useRef();
@@ -91,7 +93,7 @@ export const Filter = () => {
             <button className="brand__clear">Очистить</button>
           </div>
           <label htmlFor="" className="brand__find">
-            <img src="/find.svg" alt="" className="brand__find__img" />
+            <img src={findImg} alt="" className="brand__find__img" />
             <input type="text" className="brand__input" placeholder="Поиск" />
           </label>
           <div className="brand__list-block">

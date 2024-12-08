@@ -1,6 +1,10 @@
 import { useRef } from "react";
 import "./Header.scss";
 import { useState } from "react";
+import logoImg from "/logo.svg";
+import findImg from "/find.svg";
+import cancelImg from "/cancel.svg";
+import backImg from "/back.svg";
 
 export const Header = () => {
   const findRef = useRef();
@@ -14,7 +18,7 @@ export const Header = () => {
     <>
       <header className="header">
         <div className="logo">
-          <img src="/logo.svg" alt="" className="logo__img" />
+          <img src={logoImg} alt="" className="logo__img" />
           <span className="logo__text">Логотип</span>
         </div>
         <button className="header__catalog">Каталог</button>
@@ -24,7 +28,7 @@ export const Header = () => {
             searchValue.trim().length > 0 ? "header__search--active" : ""
           }`}
         >
-          <img src="/find.svg   " alt="" className="header__search-img" />
+          <img src={findImg} alt="" className="header__search-img" />
           <input
             type="text"
             className="header__search-input"
@@ -36,7 +40,7 @@ export const Header = () => {
           <div className="header__search-buttons">
             <button className="header__search-cancel">
               <img
-                src="/cancel.svg"
+                src={cancelImg}
                 alt=""
                 className="header__search-cancel-icon"
               />
@@ -58,7 +62,7 @@ export const Header = () => {
       </header>
       <header className="header header--phone">
         <button className="header__back">
-          <img src="/back.svg" alt="" className="header__back-img" />
+          <img src={backImg} alt="" className="header__back-img" />
         </button>
         <label
           className={`header__find ${
@@ -77,7 +81,7 @@ export const Header = () => {
           <div className="header__search-buttons">
             <button className="header__search-cancel">
               <img
-                src="/cancel.svg"
+                src={cancelImg}
                 alt=""
                 className="header__search-cancel-icon"
               />

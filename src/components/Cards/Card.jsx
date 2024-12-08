@@ -1,3 +1,6 @@
+import cardImg from "/card.png";
+import fireImg from "/fire.svg";
+
 export const Card = ({ cardData }) => {
   const getSchortedName = (name) => {
     if (name.length > 66) {
@@ -8,9 +11,9 @@ export const Card = ({ cardData }) => {
   return (
     <>
       <div className="card__img-block">
-        <img src="/card.png" alt="" className="card__img" />
+        <img src={cardImg} alt="" className="card__img" />
         <div className="card__hit">
-          Хит продаж <img src="/fire.svg" alt="" className="card__hit__img" />
+          Хит продаж <img src={fireImg} alt="" className="card__hit__img" />
         </div>
         <div className="card__discount">25%</div>
       </div>
