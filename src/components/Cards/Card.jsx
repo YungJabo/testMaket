@@ -1,4 +1,10 @@
 export const Card = ({ cardData }) => {
+  const getSchortedName = (name) => {
+    if (name.length > 66) {
+      return name.slice(0, 66) + "...";
+    }
+    return name;
+  };
   return (
     <>
       <div className="card__img-block">
@@ -9,7 +15,7 @@ export const Card = ({ cardData }) => {
         <div className="card__discount">25%</div>
       </div>
       <div className="card__brand">{cardData.brand}</div>
-      <div className="card__name">{cardData.name}</div>
+      <div className="card__name">{getSchortedName(cardData.name)}</div>
       <div className="card__price">
         <div className="card__price__current">{cardData.price}</div>
         <div className="card__price__old">{cardData.oldPrice}</div>

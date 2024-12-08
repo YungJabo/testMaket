@@ -1,17 +1,27 @@
 @import "../../colors.scss";
+@import "../../mixin.scss";
+
 .filter {
   width: 280px;
+  flex-shrink: 0;
+  @include phone {
+    display: none;
+  }
 }
 .category {
   display: flex;
   flex-direction: column;
   &__item {
     &__info {
+      border-radius: 5px;
       cursor: pointer;
       padding: 7px 16px 7px 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      &:hover {
+        background: $color-font-bg;
+      }
     }
     &__count {
     }
@@ -56,6 +66,7 @@
     border: 1px solid $color-border;
     border-radius: 8px;
     padding-left: 8px;
+    box-sizing: border-box;
 
     input {
       border: none;
@@ -101,11 +112,15 @@
     input[type="checkbox"] {
       display: none;
     }
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 12px;
     height: 180px;
     overflow-y: scroll;
+    &-block {
+      position: relative;
+    }
   }
   &__item {
     display: flex;
@@ -117,12 +132,28 @@
       align-items: center;
       width: 100%;
       cursor: pointer;
+      &:hover {
+        .brand,
+        .size {
+          &__item__checkbox {
+            border: 1px solid $color-brand;
+          }
+        }
+      }
     }
     &__checkbox {
       width: 20px;
       height: 20px;
       border: 1px solid $color-border;
       border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 10px;
+        height: 10px;
+        transform: scale(0);
+      }
     }
     &__name {
       margin-left: 12px;
@@ -154,5 +185,13 @@
   }
   &__title {
     text-align: center;
+  }
+}
+
+input[type="checkbox"]:checked + div {
+  background: $color-brand;
+  border: 1px solid $color-brand;
+  img {
+    transform: scale(1);
   }
 }

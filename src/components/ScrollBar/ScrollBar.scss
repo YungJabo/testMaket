@@ -1,0 +1,19 @@
+@import "../../colors.scss";
+
+.scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: transparent;
+  flex-shrink: 0;
+  overflow: hidden;
+  &__thumb {
+    width: 100%;
+    background: $color-icons;
+    border-radius: 10px;
+    height: 121px;
+    position: absolute;
+  }
+}

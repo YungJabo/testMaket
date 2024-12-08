@@ -4,5 +4,12 @@ import react from "@vitejs/plugin-react-swc";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base: "https://yungjabo.github.io/testMaket",
+  // base: "/testMaket/",
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: `@import "./src/global.scss";`,
+  //     },
+  //   },
+  // },
 });

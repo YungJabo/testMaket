@@ -1,9 +1,53 @@
 @import "../../colors.scss";
+@import "../../mixin.scss";
+
 .header {
   display: flex;
   align-items: center;
   height: 48px;
   padding: 12px 0;
+  margin-bottom: 24px;
+  font-family: "Inter", sans-serif;
+  @include desk1440 {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  @include phone {
+    display: none;
+  }
+  &--phone {
+    display: none;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    .header__search-buttons {
+      margin-left: auto;
+    }
+    @include phone {
+      display: flex;
+    }
+  }
+  &__find {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    position: relative;
+    padding-bottom: 6px;
+    width: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background: $color-border;
+      bottom: 0;
+    }
+    input {
+      border: none;
+    }
+  }
+
   //   justify-content: space-between;
   &__catalog {
     font-size: 14px;
@@ -27,6 +71,12 @@
     cursor: text;
     height: 46px;
     box-sizing: border-box;
+    overflow: hidden;
+    &--active > & {
+      &-buttons {
+        transform: translateX(0);
+      }
+    }
 
     &:hover {
       border: 1px solid #73aff4;
@@ -41,6 +91,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      transform-origin: 100% 100%;
+      transform: translateX(200%);
     }
     &-cancel {
       width: 24px;

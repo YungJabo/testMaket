@@ -1,7 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "./colors.scss";
+@import "./mixin.scss";
+
 * {
   margin: 0;
   padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  font-family: "PT Sans", sans-serif;
 }
 a {
   text-decoration: none;
@@ -20,8 +28,16 @@ body {
   height: 100%;
   max-width: 1720px;
   margin: 0 auto;
+  
   &__content {
     display: flex;
+  }
+  @include desk1440 {
+    max-width: 1240px;
+  }
+  @include phone {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 button {
@@ -31,4 +47,15 @@ button {
 }
 input {
   outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $color-icons;
+  border-radius: 10px;
 }

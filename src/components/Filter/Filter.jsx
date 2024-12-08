@@ -1,7 +1,12 @@
 import "./Filter.scss";
 import { category, brands } from "../../const.js";
+import { useRef, useState } from "react";
+import { ScrollBar } from "../ScrollBar/ScrollBar.jsx";
 
 export const Filter = () => {
+  const brandRef = useRef();
+  const sizeRef = useRef();
+
   const changePrice = (e) => {
     const inputValue = e.target.value;
     const numericValue = inputValue.replace(/[^0-9.]/g, "");
@@ -11,6 +16,18 @@ export const Filter = () => {
     const inputValue = e.target.value;
     const numericValue = inputValue.replace(/[^0-9.]/g, "");
     e.target.value = numericValue ? `${numericValue} ₽` : "0 ₽";
+  };
+
+  const handleBrandChange = (index) => {
+    const newCheckedBrands = [...checkedBrands];
+    newCheckedBrands[index] = !newCheckedBrands[index];
+    setCheckedBrands(newCheckedBrands);
+  };
+
+  const handleSizeChange = (index) => {
+    const newCheckedSizes = [...checkedSizes];
+    newCheckedSizes[index] = !newCheckedSizes[index];
+    setCheckedSizes(newCheckedSizes);
   };
   return (
     <>
@@ -77,44 +94,59 @@ export const Filter = () => {
             <img src="/find.svg" alt="" className="brand__find__img" />
             <input type="text" className="brand__input" placeholder="Поиск" />
           </label>
-
-          <ul className="brand__list">
-            {brands.map((brand, index) => (
-              <li className="brand__item" key={index}>
-                <label
-                  htmlFor={`brand#${index}`}
-                  className="brand__item__label"
-                >
-                  <input type="checkbox" name="" id={`brand#${index}`} />
-                  <div className="brand__item__checkbox">
-                    <img src="" alt="" className="brand__item__arrow" />
-                  </div>
-                  <div className="brand__item__name">{brand}</div>
-                  <div className="brand__item__count">3</div>
-                </label>
-              </li>
-            ))}
-          </ul>
+          <div className="brand__list-block">
+            <ul className="brand__list" ref={brandRef}>
+              {brands.map((brand, index) => (
+                <li className="brand__item" key={index}>
+                  <label
+                    htmlFor={`brand#${index}`}
+                    className="brand__item__label"
+                  >
+                    <input type="checkbox" name="" id={`brand#${index}`} />
+                    <div className={`brand__item__checkbox `}>
+                      <img
+                        src="/checked.svg"
+                        alt=""
+                        className="brand__item__arrow"
+                      />
+                    </div>
+                    <div className="brand__item__name">{brand}</div>
+                    <div className="brand__item__count">3</div>
+                  </label>
+                </li>
+              ))}
+            </ul>
+            <ScrollBar contentRef={brandRef} />
+          </div>
         </div>
         <div className="size">
           <div className="size__top">
             <h2 className="size__title">Размер</h2>
           </div>
-
-          <ul className="size__list">
-            {brands.map((brand, index) => (
-              <li className="size__item" key={index}>
-                <label htmlFor={`size#${index}`} className="size__item__label">
-                  <input type="checkbox" name="" id={`size#${index}`} />
-                  <div className="size__item__checkbox">
-                    <img src="" alt="" className="size__item__arrow" />
-                  </div>
-                  <div className="size__item__name">{brand}</div>
-                  <div className="size__item__count">3</div>
-                </label>
-              </li>
-            ))}
-          </ul>
+          <div className="size__list-block">
+            <ul className="size__list" ref={sizeRef}>
+              {brands.map((brand, index) => (
+                <li className="size__item" key={index}>
+                  <label
+                    htmlFor={`size#${index}`}
+                    className="size__item__label"
+                  >
+                    <input type="checkbox" name="" id={`size#${index}`} />
+                    <div className={`size__item__checkbox `}>
+                      <img
+                        src="/checked.svg"
+                        alt=""
+                        className="size__item__arrow"
+                      />
+                    </div>
+                    <div className="size__item__name">{brand}</div>
+                    <div className="size__item__count">3</div>
+                  </label>
+                </li>
+              ))}
+            </ul>
+            <ScrollBar contentRef={sizeRef} />
+          </div>
         </div>
       </div>
     </>
