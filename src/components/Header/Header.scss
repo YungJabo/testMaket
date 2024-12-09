@@ -72,6 +72,9 @@
     height: 46px;
     box-sizing: border-box;
     overflow: hidden;
+    &--focus {
+      border: 1px solid #73aff4;
+    }
     &--active > & {
       &-buttons {
         transform: translateX(0);

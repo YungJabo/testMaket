@@ -7,11 +7,13 @@ import cancelImg from "/cancel.svg";
 import backImg from "/back.svg";
 
 export const Header = () => {
-  const findRef = useRef();
+  const [findValue, setFindValue] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const handleInputChange = () => {
-    console.log(1);
-    setSearchValue(findRef.current.value);
+  const [isFocus, setIsFocus] = useState(false);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setFindValue(value);
+    console.log(value);
   };
 
   return (
@@ -25,8 +27,8 @@ export const Header = () => {
         <label
           htmlFor="search-item"
           className={`header__search ${
-            searchValue.trim().length > 0 ? "header__search--active" : ""
-          }`}
+            findValue.trim().length > 0 ? "header__search--active" : ""
+          } ${isFocus ? "header__search--focus" : ""}`}
         >
           <img src={findImg} alt="" className="header__search-img" />
           <input
@@ -34,8 +36,9 @@ export const Header = () => {
             className="header__search-input"
             id="search-item"
             placeholder="Поиск по 100 000 товаров"
-            ref={findRef}
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e)}
+            onFocus={() => setIsFocus(true)}
+            onBlur={() => setIsFocus(false)}
           />
           <div className="header__search-buttons">
             <button className="header__search-cancel">
@@ -75,8 +78,7 @@ export const Header = () => {
             name=""
             id="find-phone"
             className="header__input"
-            ref={findRef}
-            onChange={handleInputChange}
+            onChange={(e) => handleInputChange(e)}
           />
           <div className="header__search-buttons">
             <button className="header__search-cancel">

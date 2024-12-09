@@ -28,7 +28,9 @@ body {
   height: 100%;
   max-width: 1720px;
   margin: 0 auto;
-  
+  overflow: hidden;
+  overflow-y: scroll;
+
   &__content {
     display: flex;
   }

@@ -117,6 +117,10 @@
     max-width: max-content;
     font-size: 14px;
     font-weight: 700;
+    &:hover {
+      background: $color-brand;
+      color: $color-white;
+    }
     @include phone {
       margin-top: 12px;
     }
@@ -126,6 +130,10 @@
       color: $color-font-second;
       border: 1px solid $color-font-second;
       width: 100%;
+      &:hover {
+        color: $color-font-second;
+        background: transparent;
+      }
     }
   }
   &:hover > & {
